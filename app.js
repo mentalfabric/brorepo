@@ -4,7 +4,7 @@ let db = mongoose.connection;
 db.on('open', () =>console.log('Database connected.'));
 db.on('error', () =>console.log('Error: Database was not reached.'));
 
-require('./models/guests.schema');
+require('./models/guest.schema');
 require('./models/table.schema');
 
 var express = require('express'),
