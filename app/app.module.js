@@ -1,10 +1,13 @@
 angular.module('app', [
-    'templates',
-    'ui.router',
-    'welcome'
+  'templates',
+  'ui.bootstrap',
+  'ui.router',
+  'home',
+  'restaurant',
+  'welcome'
   ])
   .config(function ($urlRouterProvider, $stateProvider) {
-    $urlRouterProvider.otherwise('/welcome');
+    $urlRouterProvider.otherwise('/home');
   })
   .run(function () {
 

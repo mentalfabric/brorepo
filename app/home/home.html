@@ -1,0 +1,27 @@
+<div class="container Home">
+  <div class="row header">
+    <div class="col-xs-10 col-xs-offset-1">
+      <p>Robs' Kebab Palace</p>
+      <p>Best damn Kebabs you'll eva have.</p>
+      <img src="" alt="Logo" class="logo">
+    </div>
+  </div>
+  <div class="row list_section">
+    <h1>Guest Information</h1>
+    <div class="col-xs-12 list" ng-repeat="guest in home.customersWaiting track by $index">
+      <div class="col-xs-4">
+        <h3>Party Name:</h3>
+        <p>{{guest.name}}</p>
+      </div>
+      <div class="col-xs-4">
+        <h3>Phone Number:</h3>
+        <p>{{guest.phone}}</p>
+      </div>
+      <div class="col-xs-4">
+        <h3>Party Size:</h3>
+        <p>{{guest.partySize}}</p>
+        <button class="btn btn-danger" ng-click="home.cancelBooking(guest.phone)">Cancel</button>
+      </div>
+    </div>
+  </div>
+</div>
