@@ -9,6 +9,7 @@ angular.module('restaurant')
 
         vm.guests;
         vm.getGuests = getGuests;
+        vm.openModal = openModal;
 
         function getGuests(){
             $http({
@@ -20,4 +21,15 @@ angular.module('restaurant')
                 });
         }
         vm.getGuests();
+    }
+
+    function openModal() {
+        $uibModal.open({
+            ariaLabelledBy: 'modal-title',
+            ariaDescribedBy: 'modal-body',
+            templateUrl: 'restaurant/restaurant_modal/restaurant_modal.html',
+            controller: 'restaurant_modal_ctrl',
+            controllerAs: 'restModalCtrl',
+            size: 'md'
+        });
     }
