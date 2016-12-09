@@ -5,7 +5,7 @@ const mongoose = require('mongoose'),
 const GuestSchema = new mongoose.Schema({
   name: {type: String, required: true},
   phone: {type: Number, required: true},
-  email: {type: String, required: true},
+  email: {type: String},
   numberOfPeople: {type: Number, required: true},
   preference: {type: String},
   special_instructions: {type: String},

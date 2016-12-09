@@ -1,6 +1,6 @@
 angular.module('app', [
+  "ui.bootstrap",
   'templates',
-  'ui.bootstrap',
   'ui.router',
   'home',
   'restaurant',

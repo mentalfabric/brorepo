@@ -1,0 +1,47 @@
+<div class="modal-header">
+    <h3 class="modal-title" id="modal-title">Create a competition!</h3>
+</div>
+<div class="modal-body" id="modal-body">
+    <div class="row">
+        <div class="col-xs-12">
+            <h1>Please insert the guest's information.</h1>
+        </div>
+        <div class="col-xs-12">
+
+            <label for="guestName" class="comp-modal-label">Name</label>
+            <input type="text"
+                   id="guestName"
+                   class="form-control"
+                   ng-model="name">
+            <label for="guestPhone">Phone</label>
+            <input type="text"
+                   id="guestPhone"
+                   class="form-control"
+                   ng-model="phone">
+            <label for="guestEmail">Email</label>
+            <input type="text"
+                   id="guestEmail"
+                   class="form-control"
+                   ng-model="email">
+            <label for="guestParty">Party Size</label>
+            <input type="number"
+                   id="guestParty"
+                   class="form-control"
+                   ng-model="party">
+            <label for="guestPref">Preferred Seating</label>
+            <input type="text"
+                   id="guestPref"
+                   class="form-control"
+                   ng-model="pref">
+            <label for="guestSpecial">Special Requests</label>
+            <input type="text"
+                   id="guestSpecial"
+                   class="form-control"
+                   ng-model="instructions">
+        </div>
+    </div>
+</div>
+<div class="modal-footer">
+    <button type="button" class="btn btn-success" ng-click="restModalCtrl.addGuest(name, phone, email, party, pref, instructions)">Add New Guest</button>
+    <button type="button" class="btn btn-primary" ng-click="restModalCtrl.closeModal()">Cancel</button>
+</div>
