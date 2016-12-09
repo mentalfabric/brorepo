@@ -19,8 +19,12 @@
       </div>
       <div class="col-xs-4">
         <h3>Party Size:</h3>
-        <p>{{guest.partySize}}</p>
-        <button class="btn btn-danger" ng-click="home.cancelBooking(guest.phone)">Cancel</button>
+        <div class="flex--section">
+          <p>
+            {{guest.numberOfPeople}}
+          </p>
+          <button class="btn btn-danger cancel--button" ng-click="home.cancelBooking(guest.phone)">Cancel</button>
+        </div>
       </div>
     </div>
   </div>
