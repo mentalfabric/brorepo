@@ -1,9 +1,11 @@
 'use strict';
 
-angular.module('restaurant_modal')
+angular.module('restaurant')
     .controller('restaurant_modal_ctrl', restaurant_modal_ctrl);
 
 function restaurant_modal_ctrl($uibModalInstance, $http) {
+    let vm = this;
+    
     vm.addGuest = addGuest;
     vm.closeModal = closeModal;
 

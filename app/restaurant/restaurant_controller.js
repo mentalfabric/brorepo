@@ -2,9 +2,9 @@
 
 angular.module('restaurant')
     .controller('restaurantCtrl', restaurantCtrl);
-    
 
-    function restaurantCtrl($http) {
+
+    function restaurantCtrl($http, $uibModal){
         let vm = this;
 
         vm.guests;
@@ -18,7 +18,7 @@ angular.module('restaurant')
             url: '/guests/cancel/' + phoneNumber
           })
             .then( result => {
-              getGuests();
+              vm.getGuests();
             });
         }
 
@@ -32,15 +32,18 @@ angular.module('restaurant')
                 });
         }
         vm.getGuests();
-    }
 
-    function openModal() {
-        $uibModal.open({
-            ariaLabelledBy: 'modal-title',
-            ariaDescribedBy: 'modal-body',
-            templateUrl: 'restaurant/restaurant_modal/restaurant_modal.html',
-            controller: 'restaurant_modal_ctrl',
-            controllerAs: 'restModalCtrl',
-            size: 'md'
-        });
+        function openModal(){
+            $uibModal.open({
+                ariaLabelledBy: 'modal-title',
+                ariaDescribedBy: 'modal-body',
+                templateUrl: 'restaurant/restaurant_modal/restaurant_modal.html',
+                controller: 'restaurant_modal_ctrl',
+                controllerAs: 'restModalCtrl',
+                size: 'md'
+            })
+              .result.finally( function(){
+                vm.getGuests();
+              });
+        }
     }
