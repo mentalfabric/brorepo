@@ -3,7 +3,6 @@
 angular.module('restaurant')
     .controller('restaurantCtrl', restaurantCtrl);
 
-
     function restaurantCtrl($http, $uibModal){
         let vm = this;
 
@@ -46,4 +45,4 @@ angular.module('restaurant')
                 vm.getGuests();
               });
         }
-    }
+      }

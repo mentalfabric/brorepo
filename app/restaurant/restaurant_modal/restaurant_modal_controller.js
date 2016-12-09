@@ -5,11 +5,11 @@ angular.module('restaurant')
 
 function restaurant_modal_ctrl($uibModalInstance, $http) {
     let vm = this;
-    
+
     vm.addGuest = addGuest;
     vm.closeModal = closeModal;
 
-    function addGuest($http) {
+    function addGuest(name, phone, email, party, pref, instructions) {
         $http({
             method: "POST",
             url: "/guests/newGuest",
