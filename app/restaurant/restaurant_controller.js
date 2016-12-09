@@ -10,6 +10,17 @@ angular.module('restaurant')
         vm.guests;
         vm.getGuests = getGuests;
         vm.openModal = openModal;
+        vm.removeGuest = removeGuest;
+
+        function removeGuest(phoneNumber){
+          $http({
+            method: 'DELETE',
+            url: '/guests/cancel/' + phoneNumber
+          })
+            .then( result => {
+              getGuests();
+            });
+        }
 
         function getGuests(){
             $http({
