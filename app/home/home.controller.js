@@ -1,35 +1,31 @@
-
 angular.module('home')
   .controller('HomeCtrl', HomeCtrl);
 
-  function HomeCtrl($http, $state) {
+  function HomeCtrl($http, $state, HomeService) {
     var vm = this;
+    $scope.showModal = false;
 
     vm.cancelBooking = cancelBooking;
+    vm.customersWaiting = HomeService.customersWaiting()
+      .then( (customers) => {
+        vm.customersWaiting = customers;
+      });
 
     function cancelBooking(number){
-      $http({
-        method: "DELETE",
-        url: "/guests/cancel/" + number
-      })
-        .then( () => {
-          $state.reload();
-        });
+      HomeService.cancelBooking(number);
     }
 
-    vm.customersWaiting = $http({
-      method: "GET",
-      url: "/guests"
-    })
-      .then( users => {
-        vm.customersWaiting = users.data;
-      });
+    vm.openModal = () => {
+      $scope.showModal = !$scope.showModal;
+    }
 
-    vm.tables = $http({
-      method: "GET",
-      url: "/tables/find-all-tables"
-    })
-      .then( tables => {
-        vm.tables = tables.data;
-      });
+    // home.cancelBooking(guest.phone)
+    
+    // vm.tables = $http({
+    //   method: "GET",
+    //   url: "/tables/find-all-tables"
+    // })
+    //   .then( tables => {
+    //     vm.tables = tables.data;
+    //   });
   }
