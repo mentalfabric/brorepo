@@ -4,7 +4,7 @@ angular.module('restaurant')
     .controller('restaurantCtrl', restaurantCtrl);
     
 
-    function restaurantCtrl($http) {
+    function restaurantCtrl($uibModal, $http) {
         let vm = this;
 
         vm.guests;
@@ -38,7 +38,7 @@ angular.module('restaurant')
         $uibModal.open({
             ariaLabelledBy: 'modal-title',
             ariaDescribedBy: 'modal-body',
-            templateUrl: 'restaurant/restaurant_modal/restaurant_modal.html',
+            templateUrl: '/restaurant/restaurant_modal/restaurant_modal.html',
             controller: 'restaurant_modal_ctrl',
             controllerAs: 'restModalCtrl',
             size: 'md'
