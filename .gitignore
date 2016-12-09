@@ -4,4 +4,4 @@ build
 .env
 .vagrant
 Vagrantfile
-.vagrant-scripts
+vagrant-scripts
