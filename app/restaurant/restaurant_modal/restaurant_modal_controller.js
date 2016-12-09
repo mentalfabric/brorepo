@@ -1,13 +1,15 @@
 'use strict';
 
-angular.module('restaurant_modal')
+angular.module('restaurant')
     .controller('restaurant_modal_ctrl', restaurant_modal_ctrl);
 
 function restaurant_modal_ctrl($uibModalInstance, $http) {
+    let vm = this;
+
     vm.addGuest = addGuest;
     vm.closeModal = closeModal;
 
-    function addGuest($http) {
+    function addGuest(name, phone, email, party, pref, instructions) {
         $http({
             method: "POST",
             url: "/guests/newGuest",
