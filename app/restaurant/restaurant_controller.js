@@ -2,6 +2,7 @@
 
 angular.module('restaurant')
     .controller('restaurantCtrl', restaurantCtrl);
+    
 
     function restaurantCtrl($http) {
         let vm = this;
