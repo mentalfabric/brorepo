@@ -3,7 +3,8 @@ const mongoose = require('mongoose'),
       Promise = require('bluebird');
 
 const GuestSchema = new mongoose.Schema({
-  name: {type: String, required: true},
+  fname: {type: String, required: true},
+  lname: {type: String, required: true},
   phone: {type: Number, required: true},
   email: {type: String},
   numberOfPeople: {type: Number, required: true},

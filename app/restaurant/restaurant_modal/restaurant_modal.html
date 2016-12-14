@@ -8,11 +8,16 @@
         </div>
         <div class="col-xs-12">
 
-            <label for="guestName" class="comp-modal-label">Name</label>
+            <label for="guestFirstName" class="comp-modal-label">First Name</label>
             <input type="text"
-                   id="guestName"
+                   id="guestFirstName"
                    class="form-control"
-                   ng-model="name">
+                   ng-model="fname">
+            <label for="guestLastName" class="comp-modal-label">Last Name</label>
+            <input type="text"
+                   id="guestLastName"
+                   class="form-control"
+                   ng-model="lname">
             <label for="guestPhone">Phone</label>
             <input type="text"
                    id="guestPhone"
@@ -42,6 +47,6 @@
     </div>
 </div>
 <div class="modal-footer">
-    <button type="button" class="btn btn-success" ng-click="restModalCtrl.addGuest(name, phone, email, party, pref, instructions)">Add New Guest</button>
+    <button type="button" class="btn btn-success" ng-click="restModalCtrl.addGuest(fname, lname, phone, email, party, pref, instructions)">Add New Guest</button>
     <button type="button" class="btn btn-primary" ng-click="restModalCtrl.closeModal()">Cancel</button>
 </div>

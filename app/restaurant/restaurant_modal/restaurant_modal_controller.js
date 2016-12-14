@@ -7,12 +7,13 @@ function restaurant_modal_ctrl($uibModalInstance, $http) {
     vm.addGuest = addGuest;
     vm.closeModal = closeModal;
 
-    function addGuest(name, phone, email, party, pref, instructions) {
+    function addGuest(fname,lname, phone, email, party, pref, instructions) {
         $http({
             method: "POST",
             url: "/guests/newGuest",
             data: {
-                name: name,
+                fname: fname,
+                lname: lname,
                 phone: phone,
                 email: email,
                 numberOfPeople: party,
