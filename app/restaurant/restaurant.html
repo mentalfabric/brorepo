@@ -6,7 +6,7 @@
     </div>
     <div>
         <ul>
-            <li ng-repeat="guest in restaurantCtrl.guests">{{guest.name}}<i class="fa fa-times" aria-hidden="true" ng-click="restaurantCtrl.removeGuest(guest.phone)"></i></li>
+            <li ng-repeat="guest in restaurantCtrl.guests">{{guest.fname}} {{guest.lname}}<i class="fa fa-times" aria-hidden="true" ng-click="restaurantCtrl.removeGuest(guest.phone)"></i></li>
         </ul>
     </div>
   </div>
@@ -27,9 +27,6 @@
 
       <img draggable src="../../images/square_360.png" alt="4 Person Square 1">
       <img draggable src="../../images/square_360.png" alt="4 Person Square 2">
-
-
-
     </div>
   </div>
 </div>
