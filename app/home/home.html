@@ -34,15 +34,7 @@
       <div class="col-xs-4">
         <p>{{guest.numberOfPeople}}</p>
       </div>
-      <button class="btn btn-danger cancel--button" ng-click="home.cancelBooking(guest.phone)">Cancel</button>
     </div>
-  </div>
-  <!-- <button class="btn btn-danger" ng-click="home.cancelBooking(guest.phone)">Cancel</button> -->
-
-  <!-- <modal title="Cancel Reservation" visible="showModal"></modal> -->
-  <div ng-controller="CancelModalCtrl">
-    <script type="text/ng-template" id="">
-
-    </script>
+    <button class="btn btn-danger cancel--button" ng-click="home.openModal()">Cancel</button>
   </div>
 </div>

@@ -3,17 +3,18 @@ angular.module('home')
 
   function HomeService($state, $http){
     var vm = this;
-    vm.data;
+    vm.data = '';
 
     vm.cancelBooking = (number) => {
-      $http({
+      var cancel = $http({
         method: "DELETE",
         url: "/guests/cancel/" + number
-      })
-        .then( () => {
-          $state.reload();
-        });
-    }
+      });
+
+      cancel.then( () => {
+        $state.reload();
+      });
+    };
 
     vm.customersWaiting = () => {
       return $http({
@@ -24,6 +25,5 @@ angular.module('home')
         vm.data = users.data;
         return vm.data;
       });
-    }
-    
+    };
   }

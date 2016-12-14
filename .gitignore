@@ -3,8 +3,5 @@ node_modules
 build
 .env
 .vagrant
-<<<<<<< HEAD
-=======
 Vagrantfile
 vagrant-scripts
->>>>>>> 6108ea93447cbf062fea59632aace142bf5b4493

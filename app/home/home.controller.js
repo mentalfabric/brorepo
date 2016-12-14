@@ -1,31 +1,26 @@
 angular.module('home')
   .controller('HomeCtrl', HomeCtrl);
 
-  function HomeCtrl($http, $state, HomeService) {
+  function HomeCtrl($http, $state, $uibModal, HomeService) {
     var vm = this;
-    $scope.showModal = false;
+    vm.openModal = openModal;
 
-    vm.cancelBooking = cancelBooking;
     vm.customersWaiting = HomeService.customersWaiting()
       .then( (customers) => {
         vm.customersWaiting = customers;
       });
 
-    function cancelBooking(number){
-      HomeService.cancelBooking(number);
-    }
-
-    vm.openModal = () => {
-      $scope.showModal = !$scope.showModal;
-    }
-
-    // home.cancelBooking(guest.phone)
-    
-    // vm.tables = $http({
-    //   method: "GET",
-    //   url: "/tables/find-all-tables"
-    // })
-    //   .then( tables => {
-    //     vm.tables = tables.data;
-    //   });
+    function openModal(){
+      $uibModal.open({
+        ariaLabelledBy: 'modal-title',
+        ariaDescribedBy: 'modal-body',
+        templateUrl: 'home/modal/home_modal.html',
+        controller: 'home_modal_ctrl',
+        controllerAs: 'homeModalCtrl',
+        size: 'sm'
+      })
+        .result.finally( function() {
+          $state.reload();
+        });
+    };
   }
