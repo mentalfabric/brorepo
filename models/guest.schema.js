@@ -16,7 +16,7 @@ const GuestSchema = new mongoose.Schema({
   //   time: {type: String, required: true},
   //   checked_in: {type: Boolean},
   //   default: false
-  // }
+  // },
   timestamp: {type: Date, default: Date.now}
 });
 

@@ -1,35 +1,26 @@
-
 angular.module('home')
   .controller('HomeCtrl', HomeCtrl);
 
-  function HomeCtrl($http, $state) {
+  function HomeCtrl($http, $state, $uibModal, HomeService) {
     var vm = this;
+    vm.openModal = openModal;
 
-    vm.cancelBooking = cancelBooking;
+    vm.customersWaiting = HomeService.customersWaiting()
+      .then( (customers) => {
+        vm.customersWaiting = customers;
+      });
 
-    function cancelBooking(number){
-      $http({
-        method: "DELETE",
-        url: "/guests/cancel/" + number
+    function openModal(){
+      $uibModal.open({
+        ariaLabelledBy: 'modal-title',
+        ariaDescribedBy: 'modal-body',
+        templateUrl: 'home/modal/home_modal.html',
+        controller: 'home_modal_ctrl',
+        controllerAs: 'homeModalCtrl',
+        size: 'sm'
       })
-        .then( () => {
+        .result.finally( function() {
           $state.reload();
         });
-    }
-
-    vm.customersWaiting = $http({
-      method: "GET",
-      url: "/guests"
-    })
-      .then( users => {
-        vm.customersWaiting = users.data;
-      });
-
-    vm.tables = $http({
-      method: "GET",
-      url: "/tables/find-all-tables"
-    })
-      .then( tables => {
-        vm.tables = tables.data;
-      });
+    };
   }

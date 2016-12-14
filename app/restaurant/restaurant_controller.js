@@ -1,12 +1,10 @@
-'use strict';
-
 angular.module('restaurant')
     .controller('restaurantCtrl', restaurantCtrl);
 
     function restaurantCtrl($http, $uibModal){
-        let vm = this;
+        var vm = this;
 
-        vm.guests;
+        vm.guests = '';
         vm.getGuests = getGuests;
         vm.openModal = openModal;
         vm.removeGuest = removeGuest;
