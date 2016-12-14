@@ -1,5 +1,3 @@
-'use strict';
-
 angular.module('restaurant')
     .controller('restaurant_modal_ctrl', restaurant_modal_ctrl);
 
