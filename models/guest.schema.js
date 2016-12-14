@@ -18,6 +18,7 @@ const GuestSchema = new mongoose.Schema({
     checked_in: {type: Boolean},
     default: false
   }
+  
 });
 
 mongoose.model('Guest', GuestSchema);

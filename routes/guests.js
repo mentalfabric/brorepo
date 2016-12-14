@@ -31,6 +31,7 @@ router.get('/waitinglist', (req,res,next) => {
     res.render('waitinglist');
 });
 
+
 router.delete('/cancel/:number', (req, res, next) => {
   Guest.findOne({phone: parseInt(req.params.number)})
     .then( guest => {

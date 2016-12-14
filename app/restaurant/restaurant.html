@@ -1,7 +1,28 @@
-<h1>Waiting List</h1>
-    <div>
-      <ul ng-repeat="guest in restaurantCtrl.guests">
-        <li>{{guest.name}}</li>
-      </ul>
-    </div>
-    <div ng-app="myApp" ng-controller="datCtrl">
+  <table class="table table-striped" >
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Phone</th>
+      <th>Email</th>
+      <th>Number Of People</th>
+      <th>Preference</th>
+      <th>Special Instrucction</th>
+      <th>Seated</th>
+      <th>Reserved</th>
+      <th>Reservation</th>
+    </tr>
+  </thead>
+  <tbody ng-repeat="guest in restaurantCtrl.guests">
+    <tr>
+      <td>{{guest.name}}</td>
+      <td>{{guest.phone}}</td>
+      <td>{{guest.email}}</td>
+      <td>{{guest.numberOfPeople}}</td>
+      <td>{{guest.preference}}</td>
+      <td>{{guest.special_instructions}}</td>
+      <td>{{guest.seated}}</td>
+      <td>{{guest.reserved}}</td>
+      <td>{{guest.reservation | time}}</td>
+    </tr>
+  </tbody>
+</table>
