@@ -6,7 +6,14 @@
     </div>
     <div>
         <ul>
-            <li ng-repeat="guest in restaurantCtrl.guests">{{guest.fname}} {{guest.lname}}<i class="fa fa-times" aria-hidden="true" ng-click="restaurantCtrl.removeGuest(guest.phone)"></i></li>
+            <li ng-repeat="guest in restaurantCtrl.guests">
+              {{guest.fname}} {{guest.lname}}
+              <button class="btn btn-sm message"
+                      ng-click="restaurantCtrl.sendMessage(guest.phone)">Send Message</button>
+              <i class="fa fa-trash-o"
+                 aria-hidden="true"
+                 ng-click="restaurantCtrl.removeGuest(guest.phone)"></i>
+            </li>
         </ul>
     </div>
   </div>

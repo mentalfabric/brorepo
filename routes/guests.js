@@ -8,7 +8,6 @@ let twilio = require('twilio'),
  client = twilio(process.env.TWILIO_ACCOUNT.replace('\r', ''), process.env.TWILIO_AUTH.replace('\r', '')),
  twilio_number = process.env.TWILIO_NUMBER.replace('\r', '');
 
-
 router.get('/', (req,res,next) => {
     Guest.find({})
         .then( guest => {
@@ -16,9 +15,9 @@ router.get('/', (req,res,next) => {
         });
 });
 
-router.get('/table-ready', (req, res, next) => {
+router.get('/table-ready/:number', (req, res, next) => {
   client.sendMessage({
-    to: '+15597098587',
+    to: parseInt(req.params.number),
     from: twilio_number,
     body: 'Your table is ready!'
   })
