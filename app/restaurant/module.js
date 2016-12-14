@@ -7,6 +7,7 @@ angular.module('restaurant')
           url: '/restaurant',
           templateUrl: "restaurant/restaurant.html",
           controller: 'restaurantCtrl',
-          controllerAs: 'restaurantCtrl'
+          controllerAs: 'restaurantCtrl',
+          css: '../less/restaurant.less'
         });
     });

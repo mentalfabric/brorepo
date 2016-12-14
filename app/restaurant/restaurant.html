@@ -26,3 +26,16 @@
     </tr>
   </tbody>
 </table>
+<div class="Restaurant">
+  <div class="col-xs-3 list--section">
+    <div class="flex--section">
+      <h1>Waiting List</h1>
+      <button class="btn btn-primary" ng-click="restaurantCtrl.openModal()">Add Guest</button>
+    </div>
+    <div>
+        <ul>
+            <li ng-repeat="guest in restaurantCtrl.guests">{{guest.name}}<i class="fa fa-times" aria-hidden="true" ng-click="restaurantCtrl.removeGuest(guest.phone)"></i></li>
+        </ul>
+    </div>
+  </div>
+</div>

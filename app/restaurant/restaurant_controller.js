@@ -2,13 +2,24 @@
 
 angular.module('restaurant')
     .controller('restaurantCtrl', restaurantCtrl);
-    
 
-    function restaurantCtrl($http) {
+    function restaurantCtrl($http, $uibModal){
         let vm = this;
 
         vm.guests;
         vm.getGuests = getGuests;
+        vm.openModal = openModal;
+        vm.removeGuest = removeGuest;
+
+        function removeGuest(phoneNumber){
+          $http({
+            method: 'DELETE',
+            url: '/guests/cancel/' + phoneNumber
+          })
+            .then( result => {
+              vm.getGuests();
+            });
+        }
 
         function getGuests(){
             $http({
@@ -20,4 +31,18 @@ angular.module('restaurant')
                 });
         }
         vm.getGuests();
-    }
+
+        function openModal(){
+            $uibModal.open({
+                ariaLabelledBy: 'modal-title',
+                ariaDescribedBy: 'modal-body',
+                templateUrl: 'restaurant/restaurant_modal/restaurant_modal.html',
+                controller: 'restaurant_modal_ctrl',
+                controllerAs: 'restModalCtrl',
+                size: 'md'
+            })
+              .result.finally( function(){
+                vm.getGuests();
+              });
+        }
+      }
