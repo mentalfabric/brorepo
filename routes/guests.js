@@ -4,6 +4,9 @@ var express = require('express');
 var router = express.Router();
 let mongoose = require('mongoose');
 let Guest = mongoose.model('Guest');
+let twilio = require('twilio'),
+ client = twilio(process.env.TWILIO_ACCOUNT.replace('\r', ''), process.env.TWILIO_AUTH.replace('\r', '')),
+ twilio_number = process.env.TWILIO_NUMBER.replace('\r', '');
 
 
 router.get('/', (req,res,next) => {
@@ -11,6 +14,16 @@ router.get('/', (req,res,next) => {
         .then( guest => {
             res.json(guest);
         });
+});
+
+router.get('/table-ready', (req, res, next) => {
+  client.sendMessage({
+    to: '+15597098587',
+    from: twilio_number,
+    body: 'Your table is ready!'
+  })
+    .then( result => res.sendStatus(200))
+    .catch(next);
 });
 
 router.post('/newGuest', (req,res,next) => {
