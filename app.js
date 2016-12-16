@@ -34,7 +34,7 @@ app.use(bodyParser.urlencoded({extended: false}));
 app.use(cookieParser());
 
 app.get('/', function (req, res) {
-  res.render('index', {welcome: 'Bitwise says hello.'});
+  res.render('index');
 });
 
 app.use('/guests', guests);
