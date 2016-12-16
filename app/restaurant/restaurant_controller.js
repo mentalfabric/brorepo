@@ -6,12 +6,15 @@ angular.module('restaurant')
 
     vm.guests = '';
     vm.allTables;
+    vm.draggable = false;
+    vm.draggableOption = "Change Table Layout";
     vm.getGuests = getGuests;
     vm.openModal = openModal;
     vm.getTables = getTables;
     vm.removeGuest = removeGuest;
     vm.sendMessage = sendMessage;
     vm.openTableModal = openTableModal;
+    vm.setTables = setTables;
 
     function removeGuest(phoneNumber){
       $http({
@@ -82,6 +85,16 @@ angular.module('restaurant')
         .result.finally( function(){
           vm.getGuests();
         });
+    }
+
+    function setTables(){
+      if(vm.draggable == true){
+        vm.draggable = false;
+        vm.draggableOption = "Change Table Layout";
+      } else {
+        vm.draggableOption = "Finish Layout Changes";
+        vm.draggable = true;
+      }
     }
 
     function sendMessage(phoneNumber){
