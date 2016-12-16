@@ -3,23 +3,23 @@
 
   .restaurant--section {
     height: 100%;
-    padding: 25px;
+    padding: 15px;
 
     .container--box {
-      height: 100%;
+      height: 90vh;
       width: 100%;
       border: 1px solid black;
 
-      span {
+      .table--image_draggable {
         position: relative;
-        border: 1px solid tomato;
-        color: gold;
         cursor: grabbing;
+        height: 100px;
+        width: 100px;
       }
 
-      img {
+      .table--image_static {
         position: relative;
-        cursor: grabbing;
+        cursor: pointer;
         height: 100px;
         width: 100px;
       }
@@ -59,8 +59,13 @@
   }
 }
 
+.dropdown_button {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .dropdown_menu {
-  position: absolute;
   list-style: none;
   padding-left: 0;
   background-color: #fff;

@@ -18,9 +18,10 @@
     </div>
   </div>
   <div class="col-xs-9 restaurant--section">
-    <button class="btn btn-primary" ng-click="restaurantCtrl.setTables()">Set Restaurant</button>
+    <button class="btn btn-primary" ng-click="restaurantCtrl.setTables()">{{restaurantCtrl.draggableOption}}</button>
     <div class="container--box">
-      <img draggable ng-repeat="table in restaurantCtrl.allTables" ng-click="restaurantCtrl.openTableModal(table._id)" src="../../images/circle_480.png" alt="6 Person Table 1">
+      <img draggable class="table--image_draggable" ng-show="restaurantCtrl.draggable" ng-repeat="table in restaurantCtrl.allTables" src="../../images/circle_480.png" alt="6 Person Table 1">
+      <img class="table--image_static" ng-hide="restaurantCtrl.draggable" ng-repeat="table in restaurantCtrl.allTables" ng-click="restaurantCtrl.openTableModal(table._id)" src="../../images/circle_480.png" alt="6 Person Table 1">
     </div>
   </div>
 </div>
