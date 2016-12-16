@@ -1,6 +1,27 @@
-<h1>Waiting List</h1>
-<div>
-    <ul ng-repeat="guest in restaurantCtrl.guests">
-        <li>{{guest.name}}</li>
-    </ul>
+<div class="Restaurant">
+  <div class="col-xs-3 list--section">
+    <div class="flex--section">
+      <h1>Waiting List</h1>
+      <button class="btn btn-primary" ng-click="restaurantCtrl.openModal()">Add Guest</button>
+    </div>
+    <div>
+        <ul>
+            <li ng-repeat="guest in restaurantCtrl.guests">
+              {{guest.fname}} {{guest.lname}}
+              <button class="btn btn-sm message"
+                      ng-click="restaurantCtrl.sendMessage(guest.phone)">Send Message</button>
+              <i class="fa fa-trash-o"
+                 aria-hidden="true"
+                 ng-click="restaurantCtrl.removeGuest(guest.phone)"></i>
+            </li>
+        </ul>
+    </div>
+  </div>
+  <div class="col-xs-9 restaurant--section">
+    <button class="btn btn-primary" ng-click="restaurantCtrl.setTables()">{{restaurantCtrl.draggableOption}}</button>
+    <div class="container--box">
+      <img draggable class="table--image_draggable" ng-show="restaurantCtrl.draggable" ng-repeat="table in restaurantCtrl.allTables" src="../../images/circle_480.png" alt="6 Person Table 1">
+      <img class="table--image_static" ng-hide="restaurantCtrl.draggable" ng-repeat="table in restaurantCtrl.allTables" ng-click="restaurantCtrl.openTableModal(table._id)" src="../../images/circle_480.png" alt="6 Person Table 1">
+    </div>
+  </div>
 </div>

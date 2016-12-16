@@ -26,7 +26,7 @@ router.get('/find-all-tables', (req, res, next) => {
 });
 
 router.put('/change-availability', (req, res, next) => {
-  Table.findOne({tableId: req.body.tableId})
+  Table.findOne({_id: req.body.tableId})
     .then( table => {
       table.available = !table.available;
       if(!table.available){

@@ -3,21 +3,22 @@ const mongoose = require('mongoose'),
       Promise = require('bluebird');
 
 const GuestSchema = new mongoose.Schema({
-  timestamp: {type: Date, default: Date.now},
-  name: {type: String, required: true},
+  fname: {type: String, required: true},
+  lname: {type: String, required: true},
   phone: {type: Number, required: true},
-  email: {type: String, required: true},
+  email: {type: String},
   numberOfPeople: {type: Number, required: true},
   preference: {type: String},
   special_instructions: {type: String},
   seated: {type: Boolean},
   reserved: {type: Boolean},
-  reservation: {
-    date: {type: String, required: true},
-    time: {type: String, required: true},
-    checked_in: {type: Boolean},
-    default: false
-  }
+  // reservation: {
+  //   date: {type: String, required: true},
+  //   time: {type: String, required: true},
+  //   checked_in: {type: Boolean},
+  //   default: false
+  // },
+  timestamp: {type: Date, default: Date.now}
 });
 
 mongoose.model('Guest', GuestSchema);

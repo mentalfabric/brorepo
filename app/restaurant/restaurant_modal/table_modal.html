@@ -1,0 +1,24 @@
+<div class="modal-header">
+    <h3 class="modal-title text-center" id="modal-title">Choose a guest to set at the table.</h3>
+</div>
+<div class="modal-body" id="modal-body">
+  <h2 class="text-center">Select the guest from the dropdown below.</h2>
+  <div class="row">
+    <div class="col-xs-10 col-xs-offset-1 text-center">
+      <div class="dropdown_button" ng-click="tableModalCtrl.toggleDropdown()">
+          <button class="btn btn-default" type="button">
+              <span ng-hide="tableModalCtrl.selectedGuest">Select Guest</span>
+              <span ng-show="tableModalCtrl.selectedGuest">{{tableModalCtrl.selectedGuest.fname}} {{tableModalCtrl.selectedGuest.lname}}</span>
+              <span class="caret"></span>
+          </button>
+          <ul ng-show="tableModalCtrl.dropdownValue" class="dropdown_menu">
+              <li class="dropdown_menuitems" ng-repeat="guest in tableModalCtrl.allGuests" ng-click="tableModalCtrl.selectGuest(guest)">{{guest.fname}} {{guest.lname}}</li>
+          </ul>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal-footer">
+    <button class="btn btn-success" ng-click="tableModalCtrl.setTable()">Set Table</button>
+    <button class="btn btn-primary" type="button" ng-click="tableModalCtrl.closeModal()">Cancel</button>
+</div>
